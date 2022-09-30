@@ -1,0 +1,19 @@
+{
+	"name": "@vxt/directives",
+	"version": "0.0.0",
+	"description": "directives for vxt-cli",
+	"main": "lib/index.js",
+	"types": "lib/index.d.ts",
+	"files": [
+		"lib"
+	],
+	"scripts": {
+	},
+	"author": "noah227 <noah227@foxmail.com>",
+	"homepage": "",
+	"license": "ISC",
+	"dependencies": {
+		"vue": "^3.2.39"
+	},
+	"web-types": "./web-types.json"
+}
