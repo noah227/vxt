@@ -3,6 +3,7 @@
 	"version": "0.0.0",
 	"description": "directives for vxt-cli",
 	"main": "lib/index.js",
+	"module": "lib/index.cjs.js",
 	"types": "lib/index.d.ts",
 	"files": [
 		"lib"

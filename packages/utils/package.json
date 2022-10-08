@@ -1,0 +1,17 @@
+{
+	"name": "@vxt/utils",
+	"version": "1.0.0",
+	"description": "",
+	"main": "lib/index.js",
+	"module": "lib/index.cjs.js",
+	"types": "lib/index.d.ts",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"files": [
+		"lib"
+	],
+	"keywords": [],
+	"author": "",
+	"license": "ISC"
+}
