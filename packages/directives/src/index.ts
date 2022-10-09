@@ -2,7 +2,7 @@ import {App, DirectiveBinding} from "vue";
 
 const directives = {
 	/**
-	 * @desc 快捷的i18n指令
+	 * 快捷的i18n指令
 	 */
 	i18n: {
 		created(el: HTMLElement, {value: key, arg = ""}: DirectiveBinding) {

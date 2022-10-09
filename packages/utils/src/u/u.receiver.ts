@@ -4,18 +4,17 @@ export type TReceiverConfig = {
 	action: TReceiverAction
 }
 /**
- * 创建接收端
- * @desc 暂时不能调用，会造成运行时错误（不会出现在插件错误捕获里）
+ * 创建接收端 | 暂时不能调用，会造成运行时错误（不会出现在插件错误捕获里）
  */
 export const registerReceivingEnd = (configList: TReceiverConfig[]) => {
 	const actionMap = configList.reduce((data, {exec, action}) => {
 		data[exec] = action
 		return data
-	}, {} as {[index: string]: TReceiverAction})
+	}, {} as { [index: string]: TReceiverAction })
 	chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 		const exec = message.exec
 		const action = actionMap[exec]
-		if(action) action(message, sender, sendResponse)
+		action && action(message, sender, sendResponse)
 	})
 }
 

@@ -8,8 +8,7 @@ export type TContextMenuConfig = chrome.contextMenus.CreateProperties & {
 }
 
 /**
- * 创建右键菜单
- * @desc 注意运行时环境是否有权限
+ * 创建右键菜单 | 注意运行时环境是否有权限
  */
 const createContextMenus = (configList: TContextMenuConfig[]) => {
 	const menuMap = configList.reduce((data, {id, action}, index) => {

@@ -1,6 +1,7 @@
 import {nodeResolve} from "@rollup/plugin-node-resolve"
 import commonjs from "@rollup/plugin-commonjs";
 import typescript from "@rollup/plugin-typescript";
+import {terser} from "rollup-plugin-terser";
 
 const path = require("path")
 const fs = require("fs")
@@ -28,9 +29,10 @@ const defaultBuildOptions = {
 	formats: ["es", "cjs"]
 }
 const {formats} = {...defaultBuildOptions, ...pkg.buildOptions}
+const useTerser = false
 
 const createPlugins = (f) => {
-	return [
+	const plugins = [
 		nodeResolve(),
 		typescript({
 			compilerOptions: {
@@ -42,8 +44,11 @@ const createPlugins = (f) => {
 				rootDir: resolve("src")
 			},
 			sourceMap: false,
-		})
+		}),
+		commonjs()
 	]
+	useTerser && plugins.push(terser())
+	return plugins
 }
 
 const createExports = () => formats.map(f => ({
@@ -53,10 +58,6 @@ const createExports = () => formats.map(f => ({
 }))
 
 export default createExports()
-console.log(
-	">>>", resolve("./src/index.ts"),
-	">>>", resolve("lib")
-)
 fs.existsSync(resolve("lib")) && fs.rmSync(resolve("lib"), {recursive: true})
 // export default {
 // 	input: resolve("./src/index.ts"),

@@ -7,8 +7,7 @@ type TSendMessageConfig = {
 	errCb?: Function
 }
 /**
- * 发送消息通信
- * @desc 注意运行时环境是否有权限
+ * 发送消息通信 | 区别于chrome.runtime.sendMessage | 注意运行时环境是否有权限
  */
 const sendMessage = ({message, tab, cb, errCb}: TSendMessageConfig) => {
 	console.log(message, "SEND MESSAGE")
@@ -23,8 +22,7 @@ const sendMessage = ({message, tab, cb, errCb}: TSendMessageConfig) => {
 				}
 			})
 		}
-	}
-	catch (e){
+	} catch (e) {
 		console.log(e, "EEE")
 		errCb && errCb(e)
 	}
@@ -35,8 +33,7 @@ type TSendMessageToTabConfig = {
 	cb?: Function
 }
 /**
- * 向指定tabId发送通信
- * @desc 注意运行时环境是否有权限
+ * 向指定tabId发送通信 | 注意运行时环境是否有权限
  */
 const sendMessageToTab = ({tabId, message, cb}: TSendMessageToTabConfig) => {
 	chrome.tabs.sendMessage(tabId, message, (...args) => cb && cb(...args))

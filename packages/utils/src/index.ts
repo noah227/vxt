@@ -13,6 +13,7 @@ export * from "./u/u.windowMessage"
  * 没有权限的页面调用可能会导致没有显式报错的插件异常
  * 而且仅仅是变量指向也会导致此异常，即使没有调用
  * 同时此异常会导致插件的功能异常
+ * runtime context without required permission will cause exception
  * ------------------------
  * 没有./index.ts内全部权限接口的页面，直接从./u/*需要的子模块引入以避免权限导致的异常
  */
