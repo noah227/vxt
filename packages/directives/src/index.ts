@@ -9,11 +9,11 @@ const directives = {
 			if (!key) return
 			const msg = chrome.i18n.getMessage(key)
 			switch (arg) {
-				case "":
-					el.innerHTML = msg
+				case "title":
+					el.title = msg
 					break
 				default:
-					el.setAttribute(key, msg)
+					el.innerHTML = msg
 			}
 		}
 	}
