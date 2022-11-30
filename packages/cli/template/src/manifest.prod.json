@@ -1,0 +1,46 @@
+{
+	"manifest_version": 3,
+	"name": "__MSG_appName__",
+	"description": "__MSG_appDesc__",
+	"version": "0.0.1",
+	"action": {
+		"default_popup": "popup.html"
+	},
+	"homepage_url": "https://www.toxicu.com/homepage?to=crx-chieru-interpreter",
+	"options_page": "options.html",
+	"content_security_policy": {
+		"extension_pages": "script-src 'self'; object-src 'self'",
+		"sandbox": "sandbox allow-scripts allow-modals allow-forms allow-popups; script-src 'self' 'unsafe-eval' 'unsafe-inline'; object-src 'self';"
+	},
+	"permissions": [
+		"contextMenus",
+		"storage"
+	],
+	"content_scripts": [
+		{
+			"matches": [
+				"<all_urls>"
+			],
+			"js": [
+				"js/content.js",
+				"js/chunk-vendors.js"
+			],
+			"run_at": "document_idle"
+		}
+	],
+	"background": {
+		"service_worker": "js/background.js",
+		"type": "module"
+	},
+	"default_locale": "zh_CN",
+	"web_accessible_resources": [
+	],
+	"sandbox": {
+	},
+	"icons": {
+		"16": "assets/logo.png",
+		"32": "assets/logo.png",
+		"64": "assets/logo.png",
+		"128": "assets/logo.png"
+	}
+}
