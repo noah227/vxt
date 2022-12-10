@@ -14,3 +14,4 @@
 * 安装到指定app里 `--filter appName` | `-F appName`
 * 相互引用（例`@lib/a`引用`@lib/b`） `pnpm add @lib/b@* --filter @lib/a`
 * 递归安装依赖 `pnpm i -r`
+* 发布一个scoped包 `pnpm publish --filter appName`
