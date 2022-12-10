@@ -107,6 +107,7 @@ const initTemplateWithLocal = (name, cb) => {
 	try {
 		fse.copySync(path.join(__dirname, "../../template"), name, {})
 		fse.copySync(path.join(__dirname, "../../_gitignore"), `${name}/.gitignore`, {})
+		cb()
 	}
 	catch (err){
 		cb(err)
