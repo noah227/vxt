@@ -13,7 +13,6 @@
 		"./bin",
 		"./package.json",
 		"template",
-		"template/.gitignore",
 		"README.md"
 	],
 	"keywords": [],

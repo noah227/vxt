@@ -104,7 +104,11 @@ const initTemplateWithGit = (name, cb) => {
  * @return {boolean}
  */
 const initTemplateWithLocal = (name, cb) => {
-	fse.copy(path.join(__dirname, "../../template"), name, async err => {
+	try {
+		fse.copySync(path.join(__dirname, "../../template"), name, {})
+		fse.copySync(path.join(__dirname, "../../_gitignore"), `${name}/.gitignore`, {})
+	}
+	catch (err){
 		cb(err)
-	})
+	}
 }
