@@ -6,7 +6,7 @@
 	"action": {
 		"default_popup": "popup.html"
 	},
-	"homepage_url": "https://www.toxicu.com/homepage?to=crx-chieru-interpreter",
+	"homepage_url": "",
 	"options_page": "options.html",
 	"content_security_policy": {
 		"extension_pages": "script-src 'self'; object-src 'self'",
