@@ -13,7 +13,19 @@ const PACKAGE_MANAGER_CONFIG = {
 		add: ['add'],
 		upgrade: ['upgrade'],
 		remove: ['remove']
+	},
+	pnpm: {
+		install: ['install', '--reporter', 'silent', '--shamefully-hoist'],
+		add: ['install', '--reporter', 'silent', '--shamefully-hoist'],
+		upgrade: ['update', '--reporter', 'silent'],
+		remove: ['uninstall', '--reporter', 'silent']
 	}
+}
+
+const RUN_COMMAND = {
+	npm: "install",
+	yarn: "add",
+	pnpm: "install"
 }
 
 class depsInstaller {
@@ -25,6 +37,7 @@ class depsInstaller {
 	constructor({context, pm}) {
 		this.context = context || process.cwd()
 		this.pm = pm || "npm"
+		this.cmd = RUN_COMMAND[this.pm]
 		// 版本判断
 	}
 
@@ -61,7 +74,7 @@ class depsInstaller {
 		if (!await this.pmCheckValid()) return
 		const args = []
 		console.log("Installing dependencies...")
-		return await this.runCommand(this.pm, "install", args, this.context)
+		return await this.runCommand(this.pm, this.cmd, args, this.context)
 	}
 }
 
