@@ -1,6 +1,6 @@
 # VUE3 MV3 通用开发
 
-template for [~⭐vxt-cli](https://github.com/noah227/vxt-cli)
+template for [~⭐@vxt/cli](https://github.com/noah227/vxt)
 
 [中文]() | [English]()
 

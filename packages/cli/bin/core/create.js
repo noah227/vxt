@@ -108,7 +108,6 @@ const initTemplateWithLocal = (name, cb) => {
 	try {
 		fse.copySync(path.join(__dirname, "../../template"), name, {
 			filter(src) {
-				console.log(src, shallCopy(src))
 				return shallCopy(src)
 			}
 		})

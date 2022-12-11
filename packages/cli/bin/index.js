@@ -3,7 +3,7 @@
 const {Command} = require("commander")
 const program = new Command()
 const {chalk} = require("@vue/cli-shared-utils")
-console.log(chalk.greenBright("~⭐VXT-CLI POWERED"))
+console.log(chalk.greenBright("~⭐@VXT/CLI POWERED"))
 
 // 注册版本及描述信息
 program
