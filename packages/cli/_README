@@ -1,0 +1,33 @@
+# @appName
+
+## Setup
+
+```shell
+npm install
+```
+
+## Preview
+
+### Build
+```shell
+npm run build
+```
+
+or
+
+```shell
+npm run build-watch
+```
+
+### Install
+
+* visit extension management page `chrome://extensions/`(Chrome) | `edge://extensions/`(Edge)
+* enable `developer mode`
+* drag `dist` into extension page
+* enjoy!
+
+## publish
+
+```shell
+npm run build
+```

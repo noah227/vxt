@@ -3,6 +3,7 @@ const download = require("download-git-repo");
 const validatePackName = require("validate-npm-package-name")
 const {exit} = require("@vue/cli-shared-utils/lib/exit");
 const fse = require("fs-extra");
+const fs = require("fs")
 const path = require("path")
 
 const inquirer = require("inquirer")
@@ -106,15 +107,30 @@ const initTemplateWithGit = (name, cb) => {
 const initTemplateWithLocal = (name, cb) => {
 	try {
 		fse.copySync(path.join(__dirname, "../../template"), name, {
-			filter(src){
-				console.log(src)
-				return true
+			filter(src) {
+				return shallCopy(src)
 			}
 		})
 		fse.copySync(path.join(__dirname, "../../_gitignore"), `${name}/.gitignore`, {})
+		fs.writeFileSync(
+			`${name}/README.md`,
+			fs.readFileSync(path.join(__dirname, "../../_README"), {encoding: "utf8"}).replace("@appName", name),
+			{
+				encoding: "utf8"
+			}
+		)
 		cb()
-	}
-	catch (err){
+	} catch (err) {
 		cb(err)
 	}
+}
+
+/** @type String[] */
+const COPY_EXCLUDE_LIST = ["TODO.md", "README.md"]
+/**
+ * whether to copy
+ * @param src {String}
+ */
+const shallCopy = (src) => {
+	return !COPY_EXCLUDE_LIST.find(s => src.endsWith(s))
 }
