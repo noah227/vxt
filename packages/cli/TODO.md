@@ -1,13 +1,13 @@
 - [x] 模版拉取/拷贝创建
 - [ ] 自动安装依赖 npm | pnpm | yarn
     - [ ] 安装器检查
-    - [ ] 安装器支持
+    - [x] 安装器支持
         - [x] npm
-        - [ ] pnpm
-        - [ ] yarn
+        - [x] pnpm
+        - [x] yarn
 - [x] Git自动初始化
-- [ ] 优化deps和devDeps
-- [ ] 初始化package.json文件中的项目名及其它项
+- [x] 优化deps和devDeps
+- [x] 初始化package.json文件中的项目名及其它项
 
 - [ ] 公有开发计划
     - [ ] 私有组件库提取

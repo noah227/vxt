@@ -24,7 +24,7 @@ const DOWNLOAD_PATH = DOWNLOAD_PATH_GITHUB
  * @return {Promise<void>}
  */
 module.exports = async (name, options) => {
-	console.log(options)
+	// console.log(options)
 	// exit(1)
 	// 验证报包名是否有效
 	if (!validatePackName(name).validForNewPackages) {
@@ -105,7 +105,12 @@ const initTemplateWithGit = (name, cb) => {
  */
 const initTemplateWithLocal = (name, cb) => {
 	try {
-		fse.copySync(path.join(__dirname, "../../template"), name, {})
+		fse.copySync(path.join(__dirname, "../../template"), name, {
+			filter(src){
+				console.log(src)
+				return true
+			}
+		})
 		fse.copySync(path.join(__dirname, "../../_gitignore"), `${name}/.gitignore`, {})
 		cb()
 	}
