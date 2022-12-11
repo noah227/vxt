@@ -6,7 +6,6 @@
 	"action": {
 		"default_popup": "popup.html"
 	},
-	"homepage_url": "",
 	"options_page": "options.html",
 	"content_security_policy": {
 		"extension_pages": "script-src 'self'; object-src 'self'",
