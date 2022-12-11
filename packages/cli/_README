@@ -26,7 +26,7 @@ npm run build-watch
 * drag `dist` into extension page
 * enjoy!
 
-## publish
+## Publish
 
 ```shell
 npm run build
