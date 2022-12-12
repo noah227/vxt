@@ -50,7 +50,7 @@ module.exports = async (name, options) => {
 				]
 			})
 			if (action === "cancel") {
-				console.log("已取消创建")
+				console.log("Creation canceled")
 				exit(0)
 			} else if (action === "overwrite") {
 				await fse.remove(name)

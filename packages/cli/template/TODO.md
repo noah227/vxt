@@ -4,4 +4,4 @@
 - [ ] 引入安装的包时，程序加载异常
 	- [x] content.js
 		* manifest.json.content_scripts.js里需要包含chunk-vendors
-	- [ ] background.js
+	- [x] background.js
