@@ -8,13 +8,9 @@ const directives = {
 		created(el: HTMLElement, {value: key, arg = ""}: DirectiveBinding) {
 			if (!key) return
 			const msg = chrome.i18n.getMessage(key)
-			switch (arg) {
-				case "title":
-					el.title = msg
-					break
-				default:
-					el.innerHTML = msg
-			}
+			if (arg && arg !== "html") {
+				el.setAttribute(arg, msg)
+			} else el.innerHTML = msg
 		}
 	}
 }
