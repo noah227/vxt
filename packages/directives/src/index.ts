@@ -1,18 +1,22 @@
 import {App, DirectiveBinding} from "vue";
 
-const directives = {
-	/**
-	 * 快捷的i18n指令
-	 */
-	i18n: {
-		created(el: HTMLElement, {value: key, arg = ""}: DirectiveBinding) {
-			if (!key) return
-			const msg = chrome.i18n.getMessage(key)
-			if (arg && arg !== "html") {
-				el.setAttribute(arg, msg)
-			} else el.innerHTML = msg
-		}
+/**
+ * 快捷的i18n指令
+ * @description set with message got with chrome.i18n.getMessage,
+ * default set to innerHTML, does not support substitutions
+ */
+export const directiveI18n = {
+	created(el: HTMLElement, {value: key, arg = ""}: DirectiveBinding) {
+		if (!key) return
+		const msg = chrome.i18n.getMessage(key)
+		if (arg && arg !== "html") {
+			el.setAttribute(arg, msg)
+		} else el.innerHTML = msg
 	}
+}
+
+const directives = {
+	i18n: directiveI18n
 }
 
 export default {
