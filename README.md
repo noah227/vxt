@@ -16,3 +16,11 @@ npm run build
 # E.g. build cli
 npm run build cli
 ```
+
+## publish
+
+```shell
+pnpm publish --filter <package-name>
+#e.g.
+pnpm publish --filter cli
+```
