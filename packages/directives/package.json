@@ -1,16 +1,25 @@
 {
 	"name": "@vxt/directives",
-	"version": "0.0.0",
+	"version": "0.1.0",
 	"description": "directives for @vxt/cli",
+	"scripts": {
+	},
 	"main": "lib/index.js",
 	"module": "lib/index.cjs.js",
 	"types": "lib/index.d.ts",
 	"files": [
 		"lib"
 	],
-	"scripts": {
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/noah227/vxt.git",
+		"directory": "packages/directives"
 	},
-	"author": "noah227 <noah227@foxmail.com>",
+	"keywords": [
+		"vxt",
+		"directives"
+	],
+	"author": "Noah Young",
 	"homepage": "",
 	"license": "ISC",
 	"dependencies": {
