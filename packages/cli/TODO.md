@@ -5,6 +5,7 @@
         - [x] npm
         - [x] pnpm
         - [x] yarn
+        - [ ] cnpm
 - [x] Git自动初始化
 - [x] 优化deps和devDeps
 - [x] 初始化package.json文件中的项目名及其它项
