@@ -8,7 +8,7 @@ Directives for vxt dev
 
 ```vue
 <!--message got with chrome.i18n.getMessage('optionText') will be set as tag a's innerHTML-->
-<div v-i18n="'optionText'"></div>
+<a v-i18n="'optionText'"></a>
 <!--message got with chrome.i18n.getMessage('linkTitle') will be set as tag a's title-->
 <a v-i18n:title="'linkTitle'"></a>
 ```
