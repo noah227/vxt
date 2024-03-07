@@ -114,11 +114,22 @@ const initTemplateWithLocal = (name, cb) => {
 		fse.copySync(path.join(__dirname, "../../_gitignore"), `${name}/.gitignore`, {})
 		fs.writeFileSync(
 			`${name}/README.md`,
-			fs.readFileSync(path.join(__dirname, "../../_README"), {encoding: "utf8"}).replace("@appName", name),
+			fs.readFileSync(path.join(__dirname, "../../_README.md"), {encoding: "utf8"}).replace("@appName", name),
 			{
 				encoding: "utf8"
 			}
 		)
+		// const lang = require("os-locale-ex").osLocaleSync()
+		// todo install os-locale-ex
+		// if(lang === "zh-CN") {
+		// 	fs.writeFileSync(
+		// 		`${name}/README.zh_CN.md`,
+		// 		fs.readFileSync(path.join(__dirname, "../../_README.zh_CN.md"), {encoding: "utf8"}).replace("@appName", name),
+		// 		{
+		// 			encoding: "utf8"
+		// 		}
+		// 	)
+		// }
 		cb()
 	} catch (err) {
 		cb(err)
