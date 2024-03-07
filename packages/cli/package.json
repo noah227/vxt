@@ -23,7 +23,11 @@
 		"directory": "packages/cli"
 	},
 	"keywords": [
+		"chrome",
+		"edge",
 		"extensions",
+		"development",
+		"manifest",
 		"vue",
 		"mv3"
 	],
