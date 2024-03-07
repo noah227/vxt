@@ -12,15 +12,15 @@
 						<div>Google Chrome</div>
 						<ul>
 							<li>
-								<a href="https://github.com/GoogleChrome/developer.chrome.com">docs@github</a>
+								<a href="https://github.com/GoogleChrome/developer.chrome.com" target="_blank">docs@github</a>
 								<span></span>
 							</li>
 							<li>
-								<a href="https://developer.chrome.com/docs/extensions">docs@website</a>
+								<a href="https://developer.chrome.com/docs/extensions" target="_blank">docs@website</a>
 								<span>access region limited</span>
 							</li>
 							<li>
-								<a href="https://github.com/GoogleChrome/chrome-extensions-samples">samples@github</a>
+								<a href="https://github.com/GoogleChrome/chrome-extensions-samples" target="_blank">samples@github</a>
 								<span></span>
 							</li>
 						</ul>
@@ -29,11 +29,11 @@
 						<div>Microsoft Edge</div>
 						<ul>
 							<li>
-								<a href="https://github.com/MicrosoftDocs/edge-developer">docs@github</a>
+								<a href="https://github.com/MicrosoftDocs/edge-developer" target="_blank">docs@github</a>
 								<span></span>
 							</li>
 							<li>
-								<a href="https://learn.microsoft.com/en-us/microsoft-edge/extensions-chromium/">docs@website</a>
+								<a href="https://learn.microsoft.com/en-us/microsoft-edge/extensions-chromium/" target="_blank">docs@website</a>
 								<span></span>
 							</li>
 						</ul>
