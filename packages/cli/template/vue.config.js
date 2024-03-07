@@ -40,7 +40,7 @@ copyPlugins.push(
 
 /** webpack entry **/
 const webpackEntry = {
-	background: "./src/background/index.ts",
+	service_worker: "./src/service-worker/index.ts",
 	content: "./src/content/index.ts",
 }
 

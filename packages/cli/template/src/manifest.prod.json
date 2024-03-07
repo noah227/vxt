@@ -28,7 +28,7 @@
 		}
 	],
 	"background": {
-		"service_worker": "js/background.js",
+		"service_worker": "js/service_worker.js",
 		"type": "module"
 	},
 	"default_locale": "zh_CN",
