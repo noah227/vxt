@@ -9,7 +9,8 @@
 	"module": "lib/index.cjs.js",
 	"types": "lib/index.d.ts",
 	"files": [
-		"lib"
+		"lib",
+		"web-types.json"
 	],
 	"repository": {
 		"type": "git",
