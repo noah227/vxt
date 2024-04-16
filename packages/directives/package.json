@@ -19,7 +19,11 @@
 	},
 	"keywords": [
 		"vxt",
-		"directives"
+		"directives",
+		"chrome",
+		"extension",
+		"i18n",
+		"locale"
 	],
 	"author": "Noah Young",
 	"homepage": "",
