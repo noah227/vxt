@@ -1,0 +1,12 @@
+{
+	"name": "@vxt/i18n-helper",
+	"version": "0.1.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"keywords": ["chrome", "i18n", "_locales", "sync", "tool", "helper"],
+	"author": "Noah Young",
+	"license": "ISC"
+}
