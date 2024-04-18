@@ -14,47 +14,47 @@ const targetDir = path.resolve(context, target)
 const resolve = (p) => path.resolve(targetDir, p)
 
 const outputPreset = {
-	"es": {
-		file: resolve("./lib/index.js"),
-		format: "es"
-	},
-	"cjs": {
-		file: resolve("./lib/index.cjs.js"),
-		format: "cjs"
-	}
+    "es": {
+        file: resolve("./lib/index.js"),
+        format: "es"
+    },
+    "cjs": {
+        file: resolve("./lib/index.cjs.js"),
+        format: "cjs"
+    }
 }
 
 const pkg = require(resolve("package.json"))
 const defaultBuildOptions = {
-	formats: ["es", "cjs"]
+    formats: ["es", "cjs"]
 }
 const {formats} = {...defaultBuildOptions, ...pkg.buildOptions}
 const useTerser = false
 
 const createPlugins = (f) => {
-	const plugins = [
-		nodeResolve(),
-		typescript({
-			compilerOptions: {
-				target: f === "cjs" ? "esnext" : "es2015",
-				sourceMap: true,
-				declaration: true,
-				declarationMap: true,
-				declarationDir: resolve("lib"),
-				rootDir: resolve("src")
-			},
-			sourceMap: false,
-		}),
-		commonjs()
-	]
-	useTerser && plugins.push(terser())
-	return plugins
+    const plugins = [
+        nodeResolve(),
+        typescript({
+            compilerOptions: {
+                target: f === "cjs" ? "esnext" : "es2015",
+                sourceMap: true,
+                declaration: true,
+                declarationMap: true,
+                declarationDir: resolve("lib"),
+                rootDir: resolve("src")
+            },
+            sourceMap: false,
+        }),
+        commonjs()
+    ]
+    useTerser && plugins.push(terser())
+    return plugins
 }
 
 const createExports = () => formats.map(f => ({
-	input: resolve("./src/index.ts"),
-	output: {...outputPreset[f], exports: "auto", sourcemap: true},
-	plugins: createPlugins(f)
+    input: resolve("./src/index.ts"),
+    output: {...outputPreset[f], exports: "auto", sourcemap: true},
+    plugins: createPlugins(f)
 }))
 
 export default createExports()

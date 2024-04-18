@@ -18,8 +18,8 @@ export * from "./u/u.windowMessage"
  * 没有./index.ts内全部权限接口的页面，直接从./u/*需要的子模块引入以避免权限导致的异常
  */
 export default {
-	...UMessage,
-	...UContextMenus,
-	...UReceiver,
-	...UWindowMessage
+    ...UMessage,
+    ...UContextMenus,
+    ...UReceiver,
+    ...UWindowMessage
 }

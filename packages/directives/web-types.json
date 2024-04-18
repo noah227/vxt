@@ -1,70 +1,70 @@
 {
-	"$schema": "https://json.schemastore.org/web-types",
-	"framework": "vue",
-	"name": "@vxt/directives",
-	"version": "version written in package.json",
-	"description-markup": "markdown",
-	"js-types-syntax": "typescript",
-	"contributions": {
-		"html": {
-			"attributes": [
-				{
-					"name": "i18n",
-					"description": "Set message got with `chrome.i18n.getMessage`, default set to innerHTML, otherwise message will be set to relative attribute. This does not support substitutions.",
-					"source": {
-						"symbol": "directiveI18n"
-					},
-					"pattern": {
-						"template": [
-							"v-i18n",
-							{
-								"items": "/html/args",
-								"template": [
-									":",
-									"#item:arg"
-								],
-								"required": false
-							}
-						]
-					},
-					"value": {
-						"type": [
-							"string"
-						],
-						"required": true
-					}
-				}
-			],
-			"args": [
-				{
-					"name": "html",
-					"description": "Set innerHTML"
-				},
-				{
-					"name": "text",
-					"description": "Set innerText"
-				},
-				{
-					"name": "title",
-					"description": "Set title"
-				},
-				{
-					"name": "class",
-					"description": "Set class"
-				},
-				{
-					"name": "alt",
-					"description": "Set image alt"
-				},
-				{
-					"name": "href",
-					"description": "Set href"
-				},
-				{
-					"name": "src",
-					"description": "Set src"
-				}
-			]
-		}
-	}
+    "$schema": "https://json.schemastore.org/web-types",
+    "framework": "vue",
+    "name": "@vxt/directives",
+    "version": "version written in package.json",
+    "description-markup": "markdown",
+    "js-types-syntax": "typescript",
+    "contributions": {
+        "html": {
+            "attributes": [
+                {
+                    "name": "i18n",
+                    "description": "Set message got with `chrome.i18n.getMessage`, default set to innerHTML, otherwise message will be set to relative attribute. This does not support substitutions.",
+                    "source": {
+                        "symbol": "directiveI18n"
+                    },
+                    "pattern": {
+                        "template": [
+                            "v-i18n",
+                            {
+                                "items": "/html/args",
+                                "template": [
+                                    ":",
+                                    "#item:arg"
+                                ],
+                                "required": false
+                            }
+                        ]
+                    },
+                    "value": {
+                        "type": [
+                            "string"
+                        ],
+                        "required": true
+                    }
+                }
+            ],
+            "args": [
+                {
+                    "name": "html",
+                    "description": "Set innerHTML"
+                },
+                {
+                    "name": "text",
+                    "description": "Set innerText"
+                },
+                {
+                    "name": "title",
+                    "description": "Set title"
+                },
+                {
+                    "name": "class",
+                    "description": "Set class"
+                },
+                {
+                    "name": "alt",
+                    "description": "Set image alt"
+                },
+                {
+                    "name": "href",
+                    "description": "Set href"
+                },
+                {
+                    "name": "src",
+                    "description": "Set src"
+                }
+            ]
+        }
+    }
 }

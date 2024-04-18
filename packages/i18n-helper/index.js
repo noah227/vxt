@@ -18,10 +18,10 @@ const path = require("path")
  * @return {string[]}
  */
 const loadLocaleDirList = (localeDir, defaultLocale, excludeList = []) => {
-	const dirList = fs.readdirSync(localeDir)
-	return dirList.filter(_ => {
-		return _ !== defaultLocale && !excludeList.includes(_) && fs.statSync(path.resolve(localeDir, _)).isDirectory()
-	})
+    const dirList = fs.readdirSync(localeDir)
+    return dirList.filter(_ => {
+        return _ !== defaultLocale && !excludeList.includes(_) && fs.statSync(path.resolve(localeDir, _)).isDirectory()
+    })
 }
 
 /**
@@ -33,7 +33,7 @@ const loadLocaleDirList = (localeDir, defaultLocale, excludeList = []) => {
  * }}}
  */
 const readLocaleContent = (localeDir, localeName) => {
-	return JSON.parse(fs.readFileSync(path.resolve(localeDir, localeName, "messages.json"), {encoding: "utf8"}))
+    return JSON.parse(fs.readFileSync(path.resolve(localeDir, localeName, "messages.json"), {encoding: "utf8"}))
 }
 
 /**
@@ -44,51 +44,51 @@ const readLocaleContent = (localeDir, localeName) => {
  * }} config
  */
 const i18nHelper = (config) => {
-	const {localeDir, defaultLocale = "en"} = config
-	const dirList = loadLocaleDirList(localeDir, defaultLocale)
-	const defaultMessage = readLocaleContent(localeDir, defaultLocale)
-	return {
-		/**
-		 * Check and init locale dirs & messages.json within.
-		 * @param {localeCode[]} locales
-		 */
-		initLocales(locales) {
-			locales.forEach(locale => {
-				const currentLocalePath = path.join(localeDir, locale)
-				if (!dirList.includes(locale)) {
-					fs.mkdirSync(currentLocalePath)
-					console.log(`[init] _locales/${locale} created`)
-				}
-				const messageJsonPath = path.resolve(currentLocalePath, "messages.json")
-				if (!fs.existsSync(messageJsonPath)) {
-					fs.writeFileSync(messageJsonPath, JSON.stringify(defaultMessage, null, 4), {encoding: "utf8"})
-					console.log(`[init] _locales/${locale}/message.json created with data from _locales/${defaultLocale}/messages.json`)
-				}
-			})
-		},
-		/**
-		 * Sync data from defaultLocale
-		 * @param {string[]} excludeList
-		 * @param {boolean} forceOverwrite
-		 */
-		syncLocales(excludeList = [], forceOverwrite = false) {
-			const dirList = loadLocaleDirList(localeDir, defaultLocale, excludeList)
-			const defaultMessage = readLocaleContent(localeDir, defaultLocale)
-			dirList.forEach(dir => {
-				// sync data to each locale from defaultLocale
-				const dirMessage = readLocaleContent(localeDir, dir)
-				const dirNewMessage = {}
-				for (let k in defaultMessage) {
-					const {message} = defaultMessage[k]
-					dirNewMessage[k] = {
-						message: forceOverwrite ? message : dirMessage[k]?.message || message || ""
-					}
-				}
-				// 其他的字段？
-				fs.writeFileSync(path.resolve(localeDir, dir, "messages.json"), JSON.stringify(dirNewMessage, null, 4), {encoding: "utf8"})
-			})
-		}
-	}
+    const {localeDir, defaultLocale = "en"} = config
+    const dirList = loadLocaleDirList(localeDir, defaultLocale)
+    const defaultMessage = readLocaleContent(localeDir, defaultLocale)
+    return {
+        /**
+         * Check and init locale dirs & messages.json within.
+         * @param {localeCode[]} locales
+         */
+        initLocales(locales) {
+            locales.forEach(locale => {
+                const currentLocalePath = path.join(localeDir, locale)
+                if (!dirList.includes(locale)) {
+                    fs.mkdirSync(currentLocalePath)
+                    console.log(`[init] _locales/${locale} created`)
+                }
+                const messageJsonPath = path.resolve(currentLocalePath, "messages.json")
+                if (!fs.existsSync(messageJsonPath)) {
+                    fs.writeFileSync(messageJsonPath, JSON.stringify(defaultMessage, null, 4), {encoding: "utf8"})
+                    console.log(`[init] _locales/${locale}/message.json created with data from _locales/${defaultLocale}/messages.json`)
+                }
+            })
+        },
+        /**
+         * Sync data from defaultLocale
+         * @param {string[]} excludeList
+         * @param {boolean} forceOverwrite
+         */
+        syncLocales(excludeList = [], forceOverwrite = false) {
+            const dirList = loadLocaleDirList(localeDir, defaultLocale, excludeList)
+            const defaultMessage = readLocaleContent(localeDir, defaultLocale)
+            dirList.forEach(dir => {
+                // sync data to each locale from defaultLocale
+                const dirMessage = readLocaleContent(localeDir, dir)
+                const dirNewMessage = {}
+                for (let k in defaultMessage) {
+                    const {message} = defaultMessage[k]
+                    dirNewMessage[k] = {
+                        message: forceOverwrite ? message : dirMessage[k]?.message || message || ""
+                    }
+                }
+                // 其他的字段？
+                fs.writeFileSync(path.resolve(localeDir, dir, "messages.json"), JSON.stringify(dirNewMessage, null, 4), {encoding: "utf8"})
+            })
+        }
+    }
 }
 
 module.exports = i18nHelper

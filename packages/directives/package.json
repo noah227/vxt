@@ -1,35 +1,35 @@
 {
-	"name": "@vxt/directives",
-	"version": "0.1.0",
-	"private": false,
-	"description": "directives for @vxt/cli",
-	"scripts": {
-	},
-	"main": "lib/index.js",
-	"module": "lib/index.cjs.js",
-	"types": "lib/index.d.ts",
-	"files": [
-		"lib",
-		"web-types.json"
-	],
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/noah227/vxt.git",
-		"directory": "packages/directives"
-	},
-	"keywords": [
-		"vxt",
-		"directives",
-		"chrome",
-		"extension",
-		"i18n",
-		"locale"
-	],
-	"author": "Noah Young",
-	"homepage": "",
-	"license": "ISC",
-	"dependencies": {
-		"vue": "^3.2.39"
-	},
-	"web-types": "./web-types.json"
+    "name": "@vxt/directives",
+    "version": "0.1.0",
+    "private": false,
+    "description": "directives for @vxt/cli",
+    "scripts": {
+    },
+    "main": "lib/index.js",
+    "module": "lib/index.cjs.js",
+    "types": "lib/index.d.ts",
+    "files": [
+        "lib",
+        "web-types.json"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/noah227/vxt.git",
+        "directory": "packages/directives"
+    },
+    "keywords": [
+        "vxt",
+        "directives",
+        "chrome",
+        "extension",
+        "i18n",
+        "locale"
+    ],
+    "author": "Noah Young",
+    "homepage": "",
+    "license": "ISC",
+    "dependencies": {
+        "vue": "^3.2.39"
+    },
+    "web-types": "./web-types.json"
 }

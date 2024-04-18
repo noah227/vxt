@@ -11,7 +11,7 @@ const i18nHelper = require("@vxt/i18n-helper")
 const path = require("path")
 
 const helper = i18nHelper({
-	localeDir: path.resolve(__dirname, "src/_locales")
+    localeDir: path.resolve(__dirname, "src/_locales")
 })
 
 helper.initLocales(["en_US", "zh_CN", "fr"])

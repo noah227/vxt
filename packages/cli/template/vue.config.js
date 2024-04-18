@@ -18,10 +18,8 @@ const createPluginItem = (from, to) => ({
 	from: path.resolve(from),
 	to: `${path.resolve("dist")}/${to}`	// 基于dist
 })
-const copyPlugins = [
-
-]
-switch (process.env.NODE_ENV){
+const copyPlugins = []
+switch (process.env.NODE_ENV) {
 	case "development":
 		copyPlugins.push(
 			createPluginItem("src/manifest.dev.json", "manifest.json")
@@ -45,7 +43,7 @@ const webpackEntry = {
 }
 
 module.exports = defineConfig({
-    transpileDependencies: true,
+	transpileDependencies: true,
 	pages,
 	configureWebpack: {
 		devtool: false,

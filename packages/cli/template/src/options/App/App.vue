@@ -29,11 +29,13 @@
 						<div>Microsoft Edge</div>
 						<ul>
 							<li>
-								<a href="https://github.com/MicrosoftDocs/edge-developer" target="_blank">docs@github</a>
+								<a href="https://github.com/MicrosoftDocs/edge-developer"
+								   target="_blank">docs@github</a>
 								<span></span>
 							</li>
 							<li>
-								<a href="https://learn.microsoft.com/en-us/microsoft-edge/extensions-chromium/" target="_blank">docs@website</a>
+								<a href="https://learn.microsoft.com/en-us/microsoft-edge/extensions-chromium/"
+								   target="_blank">docs@website</a>
 								<span></span>
 							</li>
 						</ul>
@@ -44,7 +46,8 @@
 				<div>FAQ</div>
 				<ul>
 					<li>
-						<a href="https://learn.microsoft.com/en-us/microsoft-edge/extensions-chromium/developer-guide/manifest-v3">MV3 Migration</a>
+						<a href="https://learn.microsoft.com/en-us/microsoft-edge/extensions-chromium/developer-guide/manifest-v3">MV3
+							Migration</a>
 					</li>
 				</ul>
 			</li>
@@ -95,10 +98,22 @@ html, body {
 	a + span {
 		margin-left: .5rem;
 		color: #999;
-		&:empty::before{content: ""}
-		&:empty::after{content: ""}
-		&::before {content: "("}
-		&::after {content: ")"}
+
+		&:empty::before {
+			content: ""
+		}
+
+		&:empty::after {
+			content: ""
+		}
+
+		&::before {
+			content: "("
+		}
+
+		&::after {
+			content: ")"
+		}
 	}
 }
 </style>
