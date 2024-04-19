@@ -38,7 +38,7 @@ copyPlugins.push(
 
 /** webpack entry **/
 const webpackEntry = {
-	service_worker: "./src/service-worker/index.ts",
+	service_worker: "./src/background/service-worker.ts",
 	content: "./src/content/index.ts",
 }
 
