@@ -12,9 +12,7 @@
         "useDefineForClassFields": true,
         "sourceMap": true,
         "baseUrl": ".",
-        "types": [
-            "@types/chrome"
-        ],
+        "types": [],
         "paths": {
             "@/*": [
                 "src/*"
