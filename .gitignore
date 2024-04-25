@@ -3,6 +3,7 @@ node_modules
 /dist
 lib
 dev-bak
+pnpm-lock.yaml
 
 # local env files
 .env.local
