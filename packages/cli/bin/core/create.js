@@ -138,11 +138,11 @@ const initTemplateWithLocal = (name, cb) => {
 }
 
 /** @type String[] */
-const COPY_EXCLUDE_LIST = ["TODO.md", "README.md"]
+const COPY_EXCLUDE_LIST = ["TODO.md", "README.md", "README.zh_CN.md", "package-lock.json"]
 /**
  * whether to copy
  * @param src {String}
  */
 const shallCopy = (src) => {
-	return !COPY_EXCLUDE_LIST.find(s => src.endsWith(s))
+	return !COPY_EXCLUDE_LIST.includes(src)
 }
