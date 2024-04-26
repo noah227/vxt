@@ -15,6 +15,7 @@ const GitInitializer = require("./GitInitializer")
 const DOWNLOAD_PATH_GITHUB = "github:noah227/vxt-template"
 const DOWNLOAD_PATH = DOWNLOAD_PATH_GITHUB
 
+const cliRoot = path.resolve(__dirname, "../../")
 /**
  *
  * @param name
@@ -106,15 +107,15 @@ const initTemplateWithGit = (name, cb) => {
  */
 const initTemplateWithLocal = (name, cb) => {
 	try {
-		fse.copySync(path.join(__dirname, "../../template"), name, {
+		fse.copySync(path.join(cliRoot, "template"), name, {
 			filter(src) {
 				return shallCopy(src)
 			}
 		})
-		fse.copySync(path.join(__dirname, "../../_gitignore"), `${name}/.gitignore`, {})
+		fse.copySync(path.join(cliRoot, "_gitignore"), `${name}/.gitignore`, {})
 		fs.writeFileSync(
 			`${name}/README.md`,
-			fs.readFileSync(path.join(__dirname, "../../_README.md"), {encoding: "utf8"}).replace("@appName", name),
+			fs.readFileSync(path.join(cliRoot, "_README.md"), {encoding: "utf8"}).replace("@appName", name),
 			{
 				encoding: "utf8"
 			}
@@ -124,7 +125,7 @@ const initTemplateWithLocal = (name, cb) => {
 		// if(lang === "zh-CN") {
 		// 	fs.writeFileSync(
 		// 		`${name}/README.zh_CN.md`,
-		// 		fs.readFileSync(path.join(__dirname, "../../_README.zh_CN.md"), {encoding: "utf8"}).replace("@appName", name),
+		// 		fs.readFileSync(path.join(cliRoot, "_README.zh_CN.md"), {encoding: "utf8"}).replace("@appName", name),
 		// 		{
 		// 			encoding: "utf8"
 		// 		}
