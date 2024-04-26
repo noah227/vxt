@@ -14,7 +14,8 @@
 		"./package.json",
 		"template",
 		"_gitignore",
-		"_README",
+		"_README.md",
+		"_README.zh_CN.md",
 		"README.md"
 	],
 	"repository": {
