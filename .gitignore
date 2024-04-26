@@ -4,6 +4,7 @@ node_modules
 lib
 dev-bak
 pnpm-lock.yaml
+package-lock.json
 
 # local env files
 .env.local
