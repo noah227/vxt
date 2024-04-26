@@ -56,6 +56,7 @@ module.exports = defineConfig({
 			new CopyWebpackPlugin({
 				patterns: copyPlugins
 			}),
+			// About Bundler Build Feature Flags, see https://github.com/vuejs/core/tree/main/packages/vue#bundler-build-feature-flags
 			new webpack.DefinePlugin({
 				__VUE_PROD_HYDRATION_MISMATCH_DETAILS__: false
 			})
