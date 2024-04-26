@@ -144,5 +144,5 @@ const COPY_EXCLUDE_LIST = ["TODO.md", "README.md", "README.zh_CN.md", "package-l
  * @param src {String}
  */
 const shallCopy = (src) => {
-	return !COPY_EXCLUDE_LIST.includes(src)
+	return !COPY_EXCLUDE_LIST.includes(path.basename(src))
 }
