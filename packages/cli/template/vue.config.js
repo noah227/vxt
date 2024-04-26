@@ -1,5 +1,6 @@
 const {defineConfig} = require('@vue/cli-service')
 const CopyWebpackPlugin = require("copy-webpack-plugin")
+const webpack = require("webpack")
 const path = require("path")
 
 /** 所有Vue打包入口 **/
@@ -54,6 +55,9 @@ module.exports = defineConfig({
 		plugins: [
 			new CopyWebpackPlugin({
 				patterns: copyPlugins
+			}),
+			new webpack.DefinePlugin({
+				__VUE_PROD_HYDRATION_MISMATCH_DETAILS__: false
 			})
 		]
 	},
