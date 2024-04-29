@@ -63,6 +63,10 @@
                 {
                     "name": "src",
                     "description": "Set src"
+                },
+                {
+                    "name": "placeholder",
+                    "description": "Set placeholder"
                 }
             ]
         }
