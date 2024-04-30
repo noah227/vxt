@@ -45,6 +45,7 @@
 		"esm": "^3.2.25",
 		"fs-extra": "^10.1.0",
 		"inquirer": "^8.0.0",
+		"os-locale-ex": "^1.1.0",
 		"validate-npm-package-name": "^4.0.0"
 	},
 	"engines": {

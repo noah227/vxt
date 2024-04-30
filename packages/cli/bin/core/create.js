@@ -120,17 +120,18 @@ const initTemplateWithLocal = (name, cb) => {
 				encoding: "utf8"
 			}
 		)
-		// const lang = require("os-locale-ex").osLocaleSync()
-		// todo install os-locale-ex
-		// if(lang === "zh-CN") {
-		// 	fs.writeFileSync(
-		// 		`${name}/README.zh_CN.md`,
-		// 		fs.readFileSync(path.join(cliRoot, "_README.zh_CN.md"), {encoding: "utf8"}).replace("@appName", name),
-		// 		{
-		// 			encoding: "utf8"
-		// 		}
-		// 	)
-		// }
+		const lang = require("os-locale-ex").osLocaleSync()
+		const langTransformed = lang.replaceAll("-", "_")
+		const localeFsPath = path.join(cliRoot, `_README.${langTransformed}.md`)
+		if(fs.existsSync(localeFsPath)) {
+			fs.writeFileSync(
+				`${name}/README.${langTransformed}.md`,
+				fs.readFileSync(localeFsPath, {encoding: "utf8"}).replace("@appName", name),
+				{
+					encoding: "utf8"
+				}
+			)
+		}
 		cb()
 	} catch (err) {
 		cb(err)
