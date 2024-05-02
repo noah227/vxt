@@ -27,7 +27,7 @@ npm run build-watch
 
 ## Reminding
 
-* Files in dist like chunk-vendors, chunk-common, etc. may need to by included in manifest.json to ensure extension to
+* Files in dist like chunk-vendors, chunk-common, etc. may need to be included in manifest.json to ensure extension to
   work as that it should be
 
 ## Official Extension Development Docs (Google)
