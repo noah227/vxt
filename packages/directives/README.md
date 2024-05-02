@@ -20,7 +20,3 @@ app.use(directiveI18n)
 <!--message got with chrome.i18n.getMessage('linkTitle') will be set as tag's title-->
 <a v-i18n:title="'linkTitle'"></a>
 ```
-
-## todo
-
-- [ ] ?
