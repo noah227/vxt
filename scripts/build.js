@@ -10,6 +10,7 @@ const buildProject = async (name) => {
     const pkg = require(path.resolve(context, name, "package.json"))
     if (pkg.private) return
     if (!pkg.main) return
+    if (!fs.existsSync(path.resolve(context, name, "./src/index.ts"))) return
     // build lib
     await execa("rollup", [
         "-c", "--environment",

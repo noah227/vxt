@@ -26,7 +26,7 @@ const outputPreset = {
 
 const pkg = require(resolve("package.json"))
 const defaultBuildOptions = {
-    formats: ["es", "cjs"]
+    formats: ["es"]
 }
 const {formats} = {...defaultBuildOptions, ...pkg.buildOptions}
 const useTerser = false
