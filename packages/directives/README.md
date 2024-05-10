@@ -2,17 +2,17 @@
 
 Directives for vxt dev
 
-## usage
-
-### v-i18n
+## usage 
 
 ```ts
 // main.ts
-import directiveI18n from "@vxt/directives";
+import vxtDirectives from "@vxt/directives";
 
 const app = createApp(App)
-app.use(directiveI18n)
+app.use(vxtDirectives)
 ```
+
+### v-i18n
 
 ```vue
 <!--message got with chrome.i18n.getMessage('optionText') will be set as tag's innerHTML-->
