@@ -2,9 +2,9 @@ const {defineConfig} = require('@vue/cli-service')
 const CopyWebpackPlugin = require("copy-webpack-plugin")
 const webpack = require("webpack")
 const path = require("path")
+const {pageEntryDirs, copyItems, webpackEntry} = require("./vxt.config")
 
 /** 所有Vue打包入口 **/
-const pageEntryDirs = ["options", "popup"]
 const pages = pageEntryDirs.reduce((pages, dir) => {
     pages[dir] = {
         entry: `src/${dir}/main.ts`,
@@ -17,7 +17,7 @@ const pages = pageEntryDirs.reduce((pages, dir) => {
 /** 所有copy入口 **/
 const createPluginItem = (from, to) => ({
     from: path.resolve(from),
-    to: `${path.resolve("dist")}/${to}`	// 基于dist
+    to: path.resolve("dist", to)	// 基于dist
 })
 const copyPlugins = []
 switch (process.env.NODE_ENV) {
@@ -33,22 +33,15 @@ switch (process.env.NODE_ENV) {
         break
 }
 copyPlugins.push(
-    createPluginItem("src/assets", "assets"),
-    createPluginItem("src/_locales", "_locales"),
+    ...copyItems.map(item => createPluginItem(...item))
 )
-
-/** webpack entry **/
-const webpackEntry = {
-    service_worker: "./src/background/service-worker.ts",
-    content: "./src/content/index.ts",
-}
 
 module.exports = defineConfig({
     transpileDependencies: true,
     pages,
     configureWebpack: {
         devtool: false,
-        entry: webpackEntry,
+        entry: {...webpackEntry},
         output: {
             filename: "js/[name].js"
         },
