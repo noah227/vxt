@@ -123,7 +123,7 @@ const initTemplateWithLocal = (name, cb) => {
 		const lang = require("os-locale-ex").osLocaleSync()
 		const langTransformed = lang.replaceAll("-", "_")
 		const localeFsPath = path.join(cliRoot, `_README.${langTransformed}.md`)
-		if(fs.existsSync(localeFsPath)) {
+		if (fs.existsSync(localeFsPath)) {
 			fs.writeFileSync(
 				`${name}/README.${langTransformed}.md`,
 				fs.readFileSync(localeFsPath, {encoding: "utf8"}).replace("@appName", name),

@@ -1,8 +1,8 @@
 {
-	"appName": {
-		"message": "Vue3 MV3扩展通用测试"
-	},
-	"appDesc": {
-		"message": "Vue3 MV3扩展通用测试描述"
-	}
+    "appName": {
+        "message": "Vue3 MV3扩展通用测试"
+    },
+    "appDesc": {
+        "message": "Vue3 MV3扩展通用测试描述"
+    }
 }
