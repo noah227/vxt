@@ -2,7 +2,7 @@
 
 Directives for vxt dev
 
-## usage 
+## usage
 
 ```ts
 // main.ts

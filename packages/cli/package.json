@@ -1,54 +1,54 @@
 {
-	"name": "@vxt/cli",
-	"version": "1.4.0",
-	"private": false,
-	"description": "Vue3 Cli for Chrome Extension Dev with Manifest Version3",
-	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1"
-	},
-	"bin": {
-		"vxt": "./bin/index.js"
-	},
-	"files": [
-		"./bin",
-		"./package.json",
-		"template",
-		"_gitignore",
-		"_README.md",
-		"_README.zh_CN.md",
-		"README.md"
-	],
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/noah227/vxt.git",
-		"directory": "packages/cli"
-	},
-	"keywords": [
-		"chrome",
-		"edge",
-		"extensions",
-		"development",
-		"manifest",
-		"vue",
-		"mv3"
-	],
-	"author": "Noah Young",
-	"license": "MIT",
-	"bugs": {
-		"url": "https://github.com/noah227/vxt/issues"
-	},
-	"dependencies": {
-		"@vue/cli-shared-utils": "^5.0.8",
-		"chalk": "^5.0.1",
-		"commander": "^9.4.0",
-		"download-git-repo": "^3.0.2",
-		"esm": "^3.2.25",
-		"fs-extra": "^10.1.0",
-		"inquirer": "^8.0.0",
-		"os-locale-ex": "^1.1.0",
-		"validate-npm-package-name": "^4.0.0"
-	},
-	"engines": {
-		"node": ">=12.0.0"
-	}
+    "name": "@vxt/cli",
+    "version": "1.4.0",
+    "private": false,
+    "description": "Vue3 Cli for Chrome Extension Dev with Manifest Version3",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "bin": {
+        "vxt": "./bin/index.js"
+    },
+    "files": [
+        "./bin",
+        "./package.json",
+        "template",
+        "_gitignore",
+        "_README.md",
+        "_README.zh_CN.md",
+        "README.md"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/noah227/vxt.git",
+        "directory": "packages/cli"
+    },
+    "keywords": [
+        "chrome",
+        "edge",
+        "extensions",
+        "development",
+        "manifest",
+        "vue",
+        "mv3"
+    ],
+    "author": "Noah Young",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/noah227/vxt/issues"
+    },
+    "dependencies": {
+        "@vue/cli-shared-utils": "^5.0.8",
+        "chalk": "^5.0.1",
+        "commander": "^9.4.0",
+        "download-git-repo": "^3.0.2",
+        "esm": "^3.2.25",
+        "fs-extra": "^10.1.0",
+        "inquirer": "^8.0.0",
+        "os-locale-ex": "^1.1.0",
+        "validate-npm-package-name": "^4.0.0"
+    },
+    "engines": {
+        "node": ">=12.0.0"
+    }
 }
