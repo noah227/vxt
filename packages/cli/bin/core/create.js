@@ -26,6 +26,7 @@ const cliRoot = path.resolve(__dirname, "../../")
  * @return {Promise<void>}
  */
 module.exports = async (name, options) => {
+    const appDir = path.resolve(process.cwd(), name)
     // console.log(options)
     // exit(1)
     // 验证报包名是否有效
@@ -34,16 +35,16 @@ module.exports = async (name, options) => {
         exit(1)
     }
     // 存在文件时判断是否覆盖
-    if (fse.pathExistsSync(name)) {
+    if (fse.pathExistsSync(appDir)) {
         // 移除
         if (options.force) {
-            await fse.remove(name)
+            await fse.remove(appDir)
         } else {
             // 创建提示
             const {action} = await inquirer.prompt({
                 name: "action",
                 type: "list",
-                message: `Directory ${chalk.yellow(name)} already exists, choose an option to continue`,
+                message: `${chalk.yellow(appDir)} already exists, choose an option to continue`,
                 choices: [
                     {name: "Overwrite", value: "overwrite"},
                     {name: "Merge", value: "merge"},
@@ -54,7 +55,7 @@ module.exports = async (name, options) => {
                 console.log("Creation canceled")
                 exit(0)
             } else if (action === "overwrite") {
-                await fse.remove(name)
+                await fse.remove(appDir)
             } else if (action === "merge") {
 
             }
@@ -64,13 +65,13 @@ module.exports = async (name, options) => {
     // todo some conditions
     const initUsingGit = false
     const initTemplateFn = initUsingGit ? initTemplateWithGit : initTemplateWithLocal
-    initTemplateFn(name, async err => {
+    initTemplateFn(appDir, async err => {
         let msg = chalk.greenBright(`Project ${name} created`)
         if (err) msg = chalk.redBright(`Create error: ${err}`)
         else {
             // 模版拷贝成功
             // 初始化package.json数据
-            await new PackageInitializer(name, {
+            await new PackageInitializer(appDir, {
                 name,
                 version: '0.1.0',
                 private: true,
@@ -79,9 +80,9 @@ module.exports = async (name, options) => {
                 devDependencies: {},
             }).init()
             // 初始化git
-            await new GitInitializer({context: name, git: options.git}).init()
+            await new GitInitializer({context: appDir, git: options.git}).init()
             // 安装依赖
-            await new DepsInstaller({context: name, pm: options.packageManager}).install()
+            await new DepsInstaller({context: appDir, pm: options.packageManager}).install()
         }
         console.log(msg)
     })
@@ -89,32 +90,33 @@ module.exports = async (name, options) => {
 
 /**
  * download template from git
- * @param name {String} create file name
+ * @param appDir {String} create file dir
  * @param cb {Function} callback
  */
-const initTemplateWithGit = (name, cb) => {
-    download(DOWNLOAD_PATH, name, {
-        filename: name
+const initTemplateWithGit = (appDir, cb) => {
+    download(DOWNLOAD_PATH, appDir, {
+        filename: path.basename(appDir)
     }, async (error) => {
         cb(error)
     })
 }
 /**
  * copy local file template
- * @param name {String} create filename
+ * @param appDir {String} create file dir
  * @param cb {Function} callback
  * @return {boolean}
  */
-const initTemplateWithLocal = (name, cb) => {
+const initTemplateWithLocal = (appDir, cb) => {
     try {
-        fse.copySync(path.join(cliRoot, "template"), name, {
+        const name = path.basename(appDir)
+        fse.copySync(path.join(cliRoot, "template"), appDir, {
             filter(src) {
                 return shallCopy(src)
             }
         })
-        fse.copySync(path.join(cliRoot, "_gitignore"), `${name}/.gitignore`, {})
+        fse.copySync(path.join(cliRoot, "_gitignore"), path.resolve(appDir, ".gitignore"), {})
         fs.writeFileSync(
-            `${name}/README.md`,
+            path.resolve(appDir, "README.md"),
             fs.readFileSync(path.join(cliRoot, "_README.md"), {encoding: "utf8"}).replace("@appName", name),
             {
                 encoding: "utf8"
@@ -125,7 +127,7 @@ const initTemplateWithLocal = (name, cb) => {
         const localeFsPath = path.join(cliRoot, `_README.${langTransformed}.md`)
         if (fs.existsSync(localeFsPath)) {
             fs.writeFileSync(
-                `${name}/README.${langTransformed}.md`,
+                path.resolve(appDir, `README.${langTransformed}.md`),
                 fs.readFileSync(localeFsPath, {encoding: "utf8"}).replace("@appName", name),
                 {
                     encoding: "utf8"
