@@ -15,20 +15,36 @@ const pages = pageEntryDirs.reduce((pages, dir) => {
 }, {})
 
 /** 所有copy入口 **/
-const createPluginItem = (from, to) => ({
+const createPluginItem = (from, to, extraConfig={}) => ({
     from: path.resolve(from),
-    to: path.resolve("dist", to)	// 基于dist
+    to: path.resolve("dist", to),	// 基于dist
+    ...extraConfig
 })
 const copyPlugins = []
+
+/** manifest.json处理 */
+const removeSchemaField = (content) => {
+    const data = JSON.parse(content.toString())
+    delete data.$schema
+    return new Buffer(JSON.stringify(data, null, 4))
+}
 switch (process.env.NODE_ENV) {
     case "development":
         copyPlugins.push(
-            createPluginItem("src/manifest.dev.json", "manifest.json")
+            createPluginItem("src/manifest.dev.json", "manifest.json", {
+                transform(content, path) {
+                    return removeSchemaField(content)
+                }
+            })
         )
         break
     case "production":
         copyPlugins.push(
-            createPluginItem("src/manifest.prod.json", "manifest.json")
+            createPluginItem("src/manifest.prod.json", "manifest.json", {
+                transform(content, path) {
+                    return removeSchemaField(content)
+                }
+            })
         )
         break
 }

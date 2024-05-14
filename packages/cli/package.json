@@ -1,6 +1,6 @@
 {
     "name": "@vxt/cli",
-    "version": "1.4.0",
+    "version": "1.4.2-beta.2",
     "private": false,
     "description": "Vue3 Cli for Chrome Extension Dev with Manifest Version3",
     "scripts": {
