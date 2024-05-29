@@ -26,7 +26,7 @@ const copyPlugins = []
 const removeSchemaField = (content) => {
     const data = JSON.parse(content.toString())
     delete data.$schema
-    return new Buffer(JSON.stringify(data, null, 4))
+    return new Buffer.from(JSON.stringify(data, null, 4), "utf8")
 }
 switch (process.env.NODE_ENV) {
     case "development":
