@@ -3,7 +3,7 @@
         <div>
             <strong id="title">this is options page</strong>
         </div>
-        <img src="@/assets/logo.png" alt="">
+        <img src="@/assets/icon.png" alt="">
         <ul>
             <li>
                 <div>Development Guide</div>
