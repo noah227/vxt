@@ -17,6 +17,8 @@ class GitInitializer {
         if (this.needInitGit()) {
             console.log("Initializing Git...")
             await execa("git init", [], {cwd: this.context})
+            // compatible with git 1.x
+            await execa("git add -A", [], {cwd: this.context})
         }
     }
 }
