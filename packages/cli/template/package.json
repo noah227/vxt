@@ -14,7 +14,7 @@
         "vuex": "^4.0.0"
     },
     "devDependencies": {
-        "@types/chrome": "^0.0.266",
+        "@types/chrome": "^0.0.326",
         "@vue/cli-plugin-babel": "~5.0.0",
         "@vue/cli-plugin-router": "~5.0.0",
         "@vue/cli-plugin-typescript": "~5.0.0",
